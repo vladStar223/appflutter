@@ -211,9 +211,9 @@ class _urvState extends State<urv> {
               ],
             ),
             Container(
-              width: 300,
+              width: 500,
               height: 50,
-              color: Colors.black26,
+              color: Colors.black12,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -267,7 +267,7 @@ class _urvState extends State<urv> {
             ),
             Container(
               width: 400,
-              height: 348,
+              height: 350,
               color: Colors.black12,
               child: Column(
                 children: [
@@ -1090,6 +1090,10 @@ class _urvState extends State<urv> {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Product by Vladislav Kolm")
                 ],
               ),
             ),
