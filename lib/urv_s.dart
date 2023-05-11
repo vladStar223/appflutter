@@ -202,7 +202,6 @@ class _urvState extends State<urv> {
                 ],
               ),
             ),
-            const Text("Ввод значений"),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
@@ -450,41 +449,18 @@ class _urvState extends State<urv> {
                         height: 80,
                         width: 80,
                         color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}4";
-                              } else {
-                                a = "4";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}4";
-                              } else {
-                                b = "4";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}4";
-                              } else {
-                                c = "4";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '4',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return Main();
+                                  },
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.exit_to_app)),
                       ),
                     ],
                   ),
