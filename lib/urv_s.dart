@@ -891,31 +891,27 @@ class _urvState extends State<urv> {
                                   MaterialStateProperty.all(Colors.white)),
                           onPressed: () {
                             if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}4";
-                              } else {
-                                a = "4";
+                              if (a == "0" || a.isEmpty) {
+                                a = "-";
                               }
+                              setState(() {});
                             }
                             if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}4";
-                              } else {
-                                b = "4";
+                              if (b == "0" || b.isEmpty) {
+                                b = "-";
                               }
+                              setState(() {});
                             }
                             if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}4";
-                              } else {
-                                c = "4";
+                              if (c == "0" || c.isEmpty) {
+                                c = "-";
                               }
+                              setState(() {});
                             }
-                            setState(() {});
                           },
                           child: const Text(
-                            '4',
-                            style: TextStyle(fontSize: 30),
+                            '-',
+                            style: TextStyle(fontSize: 60),
                           ),
                         ),
                       ),
@@ -1022,29 +1018,29 @@ class _urvState extends State<urv> {
                           onPressed: () {
                             if (a1 == true) {
                               if (a != "0") {
-                                a = "${a}2";
+                                a = "${a}0";
                               } else {
-                                a = "2";
+                                a = "0";
                               }
                             }
                             if (b1 == true) {
                               if (b != "0") {
-                                b = "${b}2";
+                                b = "${b}0";
                               } else {
-                                b = "2";
+                                b = "0";
                               }
                             }
                             if (c1 == true) {
                               if (c != "0") {
-                                c = "${c}2";
+                                c = "${c}0";
                               } else {
-                                c = "2";
+                                c = "0";
                               }
                             }
                             setState(() {});
                           },
                           child: const Text(
-                            '2',
+                            '0',
                             style: TextStyle(fontSize: 30),
                           ),
                         ),
@@ -1065,30 +1061,25 @@ class _urvState extends State<urv> {
                           onPressed: () {
                             if (a1 == true) {
                               if (a != "0") {
-                                a = "${a}3";
-                              } else {
-                                a = "3";
+                                a = a + ".";
                               }
                             }
                             if (b1 == true) {
                               if (b != "0") {
-                                b = "${b}3";
-                              } else {
-                                b = "3";
+                                b = b + ".";
                               }
                             }
                             if (c1 == true) {
                               if (c != "0") {
-                                c = "${c}3";
-                              } else {
-                                c = "3";
+                                c = c + ".";
                               }
                             }
                             setState(() {});
                           },
                           child: const Text(
-                            '3',
-                            style: TextStyle(fontSize: 30),
+                            ',',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 60),
                           ),
                         ),
                       ),
@@ -1101,36 +1092,22 @@ class _urvState extends State<urv> {
                         color: Colors.white,
                         child: TextButton(
                           style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      side: const BorderSide(
+                                          color: Colors.orange))),
                               foregroundColor: MaterialStateProperty.all<Color>(
                                   Colors.orange),
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.white)),
                           onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}4";
-                              } else {
-                                a = "4";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}4";
-                              } else {
-                                b = "4";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}4";
-                              } else {
-                                c = "4";
-                              }
-                            }
+                            eql = true;
                             setState(() {});
                           },
                           child: const Text(
-                            '4',
+                            '=',
                             style: TextStyle(fontSize: 30),
                           ),
                         ),
