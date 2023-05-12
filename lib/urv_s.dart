@@ -1093,7 +1093,7 @@ class _urvState extends State<urv> {
                   const SizedBox(
                     height: 13,
                   ),
-                  Text("Product by Vladislav Kolm")
+                  const Text("Product by Vladislav Kolm")
                 ],
               ),
             ),
