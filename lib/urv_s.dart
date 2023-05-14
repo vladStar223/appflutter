@@ -1,7 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class urv extends StatefulWidget {
   @override
@@ -23,6 +23,7 @@ class _urvState extends State<urv> {
   double a2 = 0;
   double b2 = 0;
   double c2 = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -54,1055 +55,1077 @@ class _urvState extends State<urv> {
       setState(() {});
     }
 
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            const Text(
-              "Решение уравнений",
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "D  = ",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                if (mid == false)
-                  Text(
-                    d.toString(),
-                    style: const TextStyle(fontSize: 30),
-                  ),
-                if (mid == true)
-                  const Text(
-                    "Дискриминант отрицательный",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
-                  ),
-              ],
-            ),
-            const Text(
-              "Формула D = b^2 - 4*a*c",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-            const Text("Вид уравнения"),
-            const Text("ax^2+bx+cx"),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 55,
-                ),
-                Container(
-                  height: 30,
-                  color: Colors.white,
-                  width: 63,
-                  child: const Text(
-                    "X1 = ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                  ),
-                ),
-                Container(
-                  height: 30,
-                  width: 150,
-                  color: Colors.white,
-                  child: Text(
-                    x1.toString(),
-                    style: const TextStyle(fontSize: 30),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 55,
-                ),
-                Container(
-                  height: 30,
-                  color: Colors.white,
-                  width: 63,
-                  child: const Text(
-                    "X2 = ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                  ),
-                ),
-                Container(
-                  height: 30,
-                  width: 150,
-                  color: Colors.white,
-                  child: Text(
-                    x2.toString(),
-                    style: const TextStyle(fontSize: 30),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 300,
-              height: 80,
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              SizedBox(height: 5.sh),
+              const Text(
+                "Решение уравнений",
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 30),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    children: const [
-                      Text(
-                        "Теоретическая информация",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
                   const Text(
-                    " X1 =-b+D/2*a",
-                    style: TextStyle(fontSize: 15),
+                    "D  = ",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
-                  const Text(
-                    "X2 =-b-D/2*a",
-                    style: TextStyle(fontSize: 15),
+                  if (mid == false)
+                    Text(
+                      d.toString(),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  if (mid == true)
+                    const Text(
+                      "Дискриминант отрицательный",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
+                    ),
+                ],
+              ),
+              const Text(
+                "Формула D = b^2 - 4*a*c",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              const Text("Вид уравнения"),
+              const Text("ax^2+bx+cx"),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 12.sw,
                   ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Разработка",
-                        style: TextStyle(fontSize: 10),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        a2.toString(),
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        b2.toString(),
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        c2.toString(),
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    ],
+                  Container(
+                    height: 4.sh,
+                    color: Colors.white,
+                    width: 16.sw,
+                    child: const Text(
+                      "X1 = ",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    height: 4.sh,
+                    width: 10.sw,
+                    color: Colors.white,
+                    child: Text(
+                      x1.toString(),
+                      style: const TextStyle(fontSize: 30),
+                    ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                Text("A"),
-                Text("B"),
-                Text("C"),
-              ],
-            ),
-            Container(
-              width: 500,
-              height: 50,
-              color: Colors.black12,
-              child: Row(
+              SizedBox(
+                height: 0.1.sh,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 12.sw,
+                  ),
+                  Container(
+                    height: 4.sh,
+                    color: Colors.white,
+                    width: 16.sw,
+                    child: const Text(
+                      "X2 = ",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    height: 4.sh,
+                    width: 10.sw,
+                    color: Colors.white,
+                    child: Text(
+                      x2.toString(),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 1.sh,
+              ),
+              Container(
+                width: 55.sw,
+                height: 10.sh,
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: const [
+                        Text(
+                          "Теоретическая информация",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      " X1 =-b+D/2*a",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    const Text(
+                      "X2 =-b-D/2*a",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          "Разработка",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          a2.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          b2.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          c2.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 2.sh,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextButton(
-                    style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.orange),
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white)),
-                    onPressed: () {
-                      a1 = true;
-                      b1 = false;
-                      c1 = false;
-                      setState(() {});
-                    },
-                    child: Text(a.toString()),
-                  ),
-                  TextButton(
-                    style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.orange),
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white)),
-                    onPressed: () {
-                      a1 = false;
-                      b1 = true;
-                      c1 = false;
-                      setState(() {});
-                    },
-                    child: Text(b.toString()),
-                  ),
-                  TextButton(
-                    style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.orange),
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white)),
-                    onPressed: () {
-                      a1 = false;
-                      b1 = false;
-                      c1 = true;
-                      setState(() {});
-                    },
-                    child: Text(c.toString()),
-                  ),
+                children: const [
+                  Text("A"),
+                  Text("B"),
+                  Text("C"),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 400,
-              height: 350,
-              color: Colors.black12,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 76,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}2";
-                              } else {
-                                a = "2";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}2";
-                              } else {
-                                b = "2";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}2";
-                              } else {
-                                c = "2";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '2',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}3";
-                              } else {
-                                a = "3";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}3";
-                              } else {
-                                b = "3";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}3";
-                              } else {
-                                c = "3";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '3',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: IconButton(
+              Container(
+                width: 100.sw,
+                height: 7.sh,
+                color: Colors.black12,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.white)),
+                      onPressed: () {
+                        a1 = true;
+                        b1 = false;
+                        c1 = false;
+                        setState(() {});
+                      },
+                      child: Text(a.toString()),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.white)),
+                      onPressed: () {
+                        a1 = false;
+                        b1 = true;
+                        c1 = false;
+                        setState(() {});
+                      },
+                      child: Text(b.toString()),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.white)),
+                      onPressed: () {
+                        a1 = false;
+                        b1 = false;
+                        c1 = true;
+                        setState(() {});
+                      },
+                      child: Text(c.toString()),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 2.sh,
+              ),
+              Container(
+                width: 300.sw,
+                height: 40.sh,
+                color: Colors.black12,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 9.sh,
+                          width: 19.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return Main();
-                                  },
-                                ),
-                              );
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
+                              }
+                              setState(() {});
                             },
-                            icon: const Icon(Icons.exit_to_app)),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 76,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
+                            child: Text(
+                              '1',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}4";
-                              } else {
-                                a = "4";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}4";
-                              } else {
-                                b = "4";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}4";
-                              } else {
-                                c = "4";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '4',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text('1', style: TextStyle(fontSize: 8.sw)),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}5";
-                              } else {
-                                a = "5";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}2";
+                                } else {
+                                  a = "2";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}5";
-                              } else {
-                                b = "5";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}2";
+                                } else {
+                                  b = "2";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}5";
-                              } else {
-                                c = "5";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}2";
+                                } else {
+                                  c = "2";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '5',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '2',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}6";
-                              } else {
-                                a = "6";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}3";
+                                } else {
+                                  a = "3";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}6";
-                              } else {
-                                b = "6";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}3";
+                                } else {
+                                  b = "3";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}6";
-                              } else {
-                                c = "6";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}3";
+                                } else {
+                                  c = "3";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '6',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '3',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}4";
-                              } else {
-                                a = "4";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return Main();
+                                    },
+                                  ),
+                                );
+                              },
+                              icon: const Icon(Icons.exit_to_app)),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 9.sh,
+                          width: 19.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}4";
-                              } else {
-                                b = "4";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}4";
-                              } else {
-                                c = "4";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '4',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '1',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 76,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}4";
+                                } else {
+                                  a = "4";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}4";
+                                } else {
+                                  b = "4";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}4";
+                                } else {
+                                  c = "4";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '4',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}7";
-                              } else {
-                                a = "7";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}5";
+                                } else {
+                                  a = "5";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}7";
-                              } else {
-                                b = "7";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}5";
+                                } else {
+                                  b = "5";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}7";
-                              } else {
-                                c = "7";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}5";
+                                } else {
+                                  c = "5";
+                                }
                               }
-                            }
+                              setState(() {});
+                            },
+                            child: Text(
+                              '5',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}6";
+                                } else {
+                                  a = "6";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}6";
+                                } else {
+                                  b = "6";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}6";
+                                } else {
+                                  c = "6";
+                                }
+                              }
+                              setState(() {});
+                            },
+                            child: Text(
+                              '6',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}4";
+                                } else {
+                                  a = "4";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}4";
+                                } else {
+                                  b = "4";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}4";
+                                } else {
+                                  c = "4";
+                                }
+                              }
+                              setState(() {});
+                            },
+                            child: Text(
+                              '4',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 9.sh,
+                          width: 19.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
+                              }
+                              setState(() {});
+                            },
+                            child: Text(
+                              '1',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}7";
+                                } else {
+                                  a = "7";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}7";
+                                } else {
+                                  b = "7";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}7";
+                                } else {
+                                  c = "7";
+                                }
+                              }
 
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '7',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '7',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}8";
-                              } else {
-                                a = "8";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}8";
-                              } else {
-                                b = "8";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}8";
-                              } else {
-                                c = "8";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '8',
-                            style: TextStyle(fontSize: 30),
-                          ),
+                        const SizedBox(
+                          width: 1,
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}9";
-                              } else {
-                                a = "9";
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}8";
+                                } else {
+                                  a = "8";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}9";
-                              } else {
-                                b = "9";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}8";
+                                } else {
+                                  b = "8";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}9";
-                              } else {
-                                c = "9";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '9',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a == "0" || a.isEmpty) {
-                                a = "-";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}8";
+                                } else {
+                                  c = "8";
+                                }
                               }
                               setState(() {});
-                            }
-                            if (b1 == true) {
-                              if (b == "0" || b.isEmpty) {
-                                b = "-";
+                            },
+                            child: Text(
+                              '8',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}9";
+                                } else {
+                                  a = "9";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}9";
+                                } else {
+                                  b = "9";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}9";
+                                } else {
+                                  c = "9";
+                                }
                               }
                               setState(() {});
-                            }
-                            if (c1 == true) {
-                              if (c == "0" || c.isEmpty) {
-                                c = "-";
+                            },
+                            child: Text(
+                              '9',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a == "0" || a.isEmpty) {
+                                  a = "-";
+                                }
+                                setState(() {});
+                              }
+                              if (b1 == true) {
+                                if (b == "0" || b.isEmpty) {
+                                  b = "-";
+                                }
+                                setState(() {});
+                              }
+                              if (c1 == true) {
+                                if (c == "0" || c.isEmpty) {
+                                  c = "-";
+                                }
+                                setState(() {});
+                              }
+                            },
+                            child: Text(
+                              '-',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 9.sh,
+                          width: 19.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
+                              }
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
+                              }
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
                               }
                               setState(() {});
-                            }
-                          },
-                          child: const Text(
-                            '-',
-                            style: TextStyle(fontSize: 60),
+                            },
+                            child: Text(
+                              '1',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 76,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}1";
+                                } else {
+                                  a = "1";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}1";
+                                } else {
+                                  b = "1";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}1";
+                                } else {
+                                  c = "1";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '1',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}1";
-                              } else {
-                                a = "1";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = "${a}0";
+                                } else {
+                                  a = "0";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}1";
-                              } else {
-                                b = "1";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = "${b}0";
+                                } else {
+                                  b = "0";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}1";
-                              } else {
-                                c = "1";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = "${c}0";
+                                } else {
+                                  c = "0";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '1',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              '0',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = "${a}0";
-                              } else {
-                                a = "0";
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              if (a1 == true) {
+                                if (a != "0") {
+                                  a = a + ".";
+                                }
                               }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = "${b}0";
-                              } else {
-                                b = "0";
+                              if (b1 == true) {
+                                if (b != "0") {
+                                  b = b + ".";
+                                }
                               }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = "${c}0";
-                              } else {
-                                c = "0";
+                              if (c1 == true) {
+                                if (c != "0") {
+                                  c = c + ".";
+                                }
                               }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '0',
-                            style: TextStyle(fontSize: 30),
+                              setState(() {});
+                            },
+                            child: Text(
+                              ',',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            if (a1 == true) {
-                              if (a != "0") {
-                                a = a + ".";
-                              }
-                            }
-                            if (b1 == true) {
-                              if (b != "0") {
-                                b = b + ".";
-                              }
-                            }
-                            if (c1 == true) {
-                              if (c != "0") {
-                                c = c + ".";
-                              }
-                            }
-                            setState(() {});
-                          },
-                          child: const Text(
-                            ',',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 60),
+                        const SizedBox(
+                          width: 1,
+                        ),
+                        Container(
+                          height: 9.sh,
+                          width: 20.sw,
+                          color: Colors.white,
+                          child: TextButton(
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                        side: const BorderSide(
+                                            color: Colors.orange))),
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.orange),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            onPressed: () {
+                              eql = true;
+                              setState(() {});
+                            },
+                            child: Text(
+                              '=',
+                              style: TextStyle(fontSize: 8.sw),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 1,
-                      ),
-                      Container(
-                        height: 80,
-                        width: 80,
-                        color: Colors.white,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30.0),
-                                      side: const BorderSide(
-                                          color: Colors.orange))),
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          onPressed: () {
-                            eql = true;
-                            setState(() {});
-                          },
-                          child: const Text(
-                            '=',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 13,
-                  ),
-                  const Text("Product by Vladislav Kolm")
-                ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.sh,
+                    ),
+                    const Text("Product by Vladislav Kolm")
+                  ],
+                ),
               ),
-            ),
-          ], //76
+            ], //76
+          ),
         ),
-      ),
-      backgroundColor: Colors.white,
-    );
-    //ssssssss
-    throw UnimplementedError();
+        backgroundColor: Colors.white,
+      );
+    });
   }
 }

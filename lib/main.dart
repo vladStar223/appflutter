@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'urv_s.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(ResponsiveApp(
+    builder: (context) => MaterialApp(
       //5656
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {'/': (context) => const Main(), '/u': (context) => urv()},
     ),
-  );
+  ));
 }
 
 class Main extends StatelessWidget {
