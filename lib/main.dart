@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'urv_s.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+//главное меню
 void main() {
   runApp(ResponsiveApp(
     builder: (context) => MaterialApp(
@@ -22,41 +23,39 @@ class Main extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Главное меню",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              TextButton(
-                style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return urv();
-                      },
-                    ),
-                  );
-                },
-                child: const Text('Уравнения'),
-              ),
-              TextButton(
-                style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
-                onPressed: () {},
-                child: const Text('Разработка'),
-              )
-            ],
-          ),
+        child: Column(
+          children: [
+            Container(
+              height: 50.sh,
+              width: 100.sw,
+              color: Colors.cyanAccent,
+            ),
+            TextButton(
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(Colors.black)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return urv();
+                    },
+                  ),
+                );
+              },
+              child: const Text('Уравнения'),
+            ),
+            TextButton(
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(Colors.black)),
+              onPressed: () {},
+              child: const Text('разработка'),
+            )
+          ],
         ),
       ),
     );
