@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -23,6 +24,11 @@ class _urvState extends State<urv> {
   double a2 = 0;
   double b2 = 0;
   double c2 = 0;
+  void k() {
+    if (kDebugMode) {
+      print("aa");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
