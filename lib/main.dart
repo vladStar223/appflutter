@@ -4,10 +4,14 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 //главное меню
 void main() {
+  var mode;
   runApp(ResponsiveApp(
     builder: (context) => MaterialApp(
       //5656
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
+      themeMode: mode,
       initialRoute: '/',
       routes: {'/': (context) => const Main(), '/u': (context) => urv()},
     ),
@@ -28,7 +32,7 @@ class Main extends StatelessWidget {
             Container(
               height: 50.sh,
               width: 100.sw,
-              color: Colors.cyanAccent,
+              color: Colors.white,
             ),
             TextButton(
               style: ButtonStyle(
