@@ -1,6 +1,8 @@
 # untitled1
 
-A new Flutter project.
+Flutter project.
+Applications for calculating equations with different degrees.
+New features are being added
 
 ## Getting Started
 
