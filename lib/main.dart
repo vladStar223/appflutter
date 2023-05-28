@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'urv_s.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 //главное меню
 void main() {
-  var mode;
-  runApp(ResponsiveApp(
-    builder: (context) => MaterialApp(
-      //5656
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      themeMode: mode,
-      initialRoute: '/',
-      routes: {'/': (context) => const Main(), '/u': (context) => urv()},
+  runApp(Provider(
+    create: (BuildContext context) {},
+    child: ResponsiveApp(
+      builder: (context) => MaterialApp(
+        //5656
+
+        initialRoute: '/',
+        routes: {'/': (context) => const Main(), '/u': (context) => urv()},
+      ),
     ),
   ));
 }
